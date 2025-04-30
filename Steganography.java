@@ -8,8 +8,8 @@ import java.awt.Color;
     /* To be implemented */
     }
       
-      public static void testClearLow(*picture parameter*){
-
+      public static void testClearLow(Picture()){
+        *return new picture objectw with lowest two bits of each pixel cleared*
     }
 
     public static void main(String[] args) {
