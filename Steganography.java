@@ -52,9 +52,13 @@ import javax.xml.transform.Source;
       return copy;
     }
 
-    public static Picture canHide(Picture Source, Picture secret){
-      //activity 2 source and secret hide thingy
-      return new Picture();
+    public static boolean canHide(Picture source, Picture secret){
+      if(source.getPictureWithHeight().equals(secret.getPictureWithHeight()) && source.getPictureWithWidth(0).equals(secret.getPictureWithWidth(0)))
+        return true;
+
+      else
+      return false;
+      
     }
   }
 
