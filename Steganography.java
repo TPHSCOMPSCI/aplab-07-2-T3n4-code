@@ -1,4 +1,6 @@
-  import java.awt.Color; 
+  import java.awt.Color;
+
+import javax.xml.transform.Source; 
  
      public class Steganography{ 
 
@@ -48,6 +50,11 @@
         }
       }
       return copy;
+    }
+
+    public static Picture canHide(Picture Source, Picture secret){
+      //activity 2 source and secret hide thingy
+      return new Picture();
     }
   }
 
