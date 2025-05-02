@@ -53,14 +53,18 @@ import javax.xml.transform.Source;
     }
 
     public static boolean canHide(Picture source, Picture secret){
-      if(source.getPictureWithHeight().equals(secret.getPictureWithHeight()) && source.getPictureWithWidth(0).equals(secret.getPictureWithWidth(0)))
-        return true;
-
+      if(source.getPictureWithHeight() == secret.getPictureWithHeight() && source.getPictureWithHeight() == source.getPictureWithWidth(0))
+      return true;
+      
       else
       return false;
       
     }
+
+    public static Picture hidePicture(Picture source, Picture secret){
+     
   }
+}
 
   //** * Clear the lower (rightmost) two bits in a pixel. */
   /** * Set the lower 2 bits in a pixel to the highest 2 bits in c */ 
