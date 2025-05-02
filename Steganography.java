@@ -43,7 +43,8 @@
       for (int r = 0; r < pixels.length; r++){
         for (int c = 0; c < pixels[0].length; c++){
           Color col = source[r][c].getColor(); 
-          
+          Pixel p = pixels[r][c];
+          p.setColor(new Color(col.getRed()%4*64, col.getGreen()%4*64, col.getBlue()%4*64));
         }
       }
       return copy;
