@@ -36,7 +36,7 @@
       return new Picture();
     }
 
-    public static Picture reveaPicture(Picture hidden){
+    public static Picture revealPicture(Picture hidden){
       Picture copy = new Picture(hidden);
       Pixel[][] pixels = copy.getPixels2D();
       Pixel[][] source = hidden.getPixels2D();
