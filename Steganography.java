@@ -17,6 +17,9 @@ import javax.xml.transform.Source;
 
     Picture copy3 = revealPicture(copy2); 
     copy3.explore();
+
+      
+
     }
     public static void clearLow( Pixel p ){ 
         p.setRed(p.getRed() & 0b11111100);
@@ -62,7 +65,29 @@ import javax.xml.transform.Source;
     }
 
     public static Picture hidePicture(Picture source, Picture secret){
-     
+
+    Picture combined = new Picture(source);
+    Pixel[][] sourcePixels = source.getPixels2D();
+    Pixel[][] secretPixels = secret.getPixels2D();
+    Pixel[][] combinedPixels = combined.getPixels2D();
+
+    for (int r = 0; r < sourcePixels.length; r++) {
+        for (int c = 0; c < sourcePixels[0].length; c++) {
+            Pixel sourcePixel = sourcePixels[r][c];
+            Pixel secretPixel = secretPixels[r][c];
+            Pixel combinedPixel = combinedPixels[r][c];
+
+            
+            int red = (sourcePixel.getRed() & 0b11111100) | (secretPixel.getRed() >> 6);
+            int green = (sourcePixel.getGreen() & 0b11111100) | (secretPixel.getGreen() >> 6);
+            int blue = (sourcePixel.getBlue() & 0b11111100) | (secretPixel.getBlue() >> 6);
+
+            combinedPixel.setColor(new Color(red, green, blue));
+        }
+    }
+
+    return combined;
+
   }
 }
 
