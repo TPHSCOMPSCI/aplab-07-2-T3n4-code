@@ -1,7 +1,5 @@
   import java.awt.Color;
 
-import javax.xml.transform.Source; 
- 
      public class Steganography{ 
 
     public static void main(String[] args) {
@@ -18,7 +16,14 @@ import javax.xml.transform.Source;
     Picture copy3 = revealPicture(copy2); 
     copy3.explore();
 
+    if (canHide(copy2, copy3)) {
+      Picture combined = hidePicture(copy2, copy3);
+      combined.explore();
+  
+      Picture revealed = revealPicture(combined);
+      revealed.explore();
       
+  }
 
     }
     public static void clearLow( Pixel p ){ 
