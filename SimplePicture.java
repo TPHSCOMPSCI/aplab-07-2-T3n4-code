@@ -586,10 +586,9 @@ public class SimplePicture implements DigitalPicture
    * Method to create a new picture of the passed height. 
    * The aspect ratio of the width and height will stay
    * the same.
-   * @param height the desired height
    * @return the resulting picture
    */
-  public Picture getPictureWithHeight(int height)
+  public Picture getPictureWithHeight()
   {
     // set up the scale transform
     double yFactor = (double) height / this.getHeight();
