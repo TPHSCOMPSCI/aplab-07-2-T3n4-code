@@ -591,7 +591,7 @@ public class SimplePicture implements DigitalPicture
   public Picture getPictureWithHeight()
   {
     // set up the scale transform
-    double yFactor = (double) height / this.getHeight();
+    double yFactor = (double) getHeight() / this.getHeight();
     Picture result = scale(yFactor,yFactor);
     return result;
   }
