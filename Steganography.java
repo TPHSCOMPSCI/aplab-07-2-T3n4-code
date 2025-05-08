@@ -66,18 +66,24 @@
 
     public static boolean canHide(Picture source, Picture secret){
 <<<<<<< HEAD
+<<<<<<< HEAD
       if(source.getPictureFrame().equals(secret.getPictureFrame()))
       return true;
 
       else
       return false;
 =======
+=======
+>>>>>>> a1e6dc4961e45438af25514f760cbfabadc20b7c
       if(source.getPictureWithHeight() == secret.getPictureWithHeight() && source.getPictureWithHeight() == source.getPictureWithWidth(0))
       return true;
       
       else
       return false;
       
+<<<<<<< HEAD
+>>>>>>> a1e6dc4961e45438af25514f760cbfabadc20b7c
+=======
 >>>>>>> a1e6dc4961e45438af25514f760cbfabadc20b7c
     }
 
