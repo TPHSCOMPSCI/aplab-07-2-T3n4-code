@@ -62,9 +62,10 @@
       else
       return false;  
     }
-    
+      
     public static Picture hidePicture(Picture source, Picture secret){
       canHide(source, secret);
+      revealPicture(secret);
       //continue activity 2
       return new Picture();
     }
