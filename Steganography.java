@@ -1,6 +1,8 @@
   import java.awt.Color;
   import java.util.ArrayList;
-
+  import java.awt.image.BufferedImage;
+  import java.awt.Graphics;
+  
      public class Steganography{ 
 
     public static void main(String[] args) {
@@ -58,8 +60,13 @@
       return true;
 
       else
-      return false;
-      
+      return false;  
+    }
+    
+    public static Picture hidePicture(Picture source, Picture secret){
+      canHide(source, secret);
+      //continue activity 2
+      return new Picture();
     }
   }
 

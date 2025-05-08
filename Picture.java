@@ -15,6 +15,7 @@ import java.util.List; // resolves problem with java.awt.List and java.util.List
  */
 public class Picture extends SimplePicture 
 {
+    public static final Picture jpg = null;
     ///////////////////// constructors //////////////////////////////////
     private final int LOW_FILTER = 4;
     private final int HIGH_FILTER = 64;
