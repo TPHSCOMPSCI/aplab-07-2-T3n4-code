@@ -17,6 +17,7 @@
     Picture copy3 = revealPicture(copy2); 
     copy3.explore();
 
+      canHide(copy2, copy3);
     }
     public static void clearLow( Pixel p ){ 
         p.setRed(p.getRed() & 0b11111100);
@@ -52,9 +53,13 @@
       return copy;
     }
 
-    public static Picture canHide(Picture Source, Picture secret){
-      //activity 2 source and secret hide thingy
-      return new Picture();
+    public static boolean canHide(Picture source, Picture secret){
+      if(source.getPictureWithHeight().equals(secret.getPictureWithHeight()) && (source.getPictureWithWidth(0).equals(secret.getPictureWithWidth(0))))
+      return true;
+
+      else
+      return false;
+      
     }
   }
 
