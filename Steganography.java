@@ -1,12 +1,13 @@
   import java.awt.Color;
   import java.util.ArrayList;
-  import java.awt.image.BufferedImage;
+  import java.awt.Point;
   import java.awt.Graphics;
   
      public class Steganography{ 
 
     public static void main(String[] args) {
     Picture beach = new Picture ("beach.jpg");
+    Picture arch = new Picture("arch.jpg");
     beach.explore();
     Picture copy = testClearLow(beach);
     copy.explore(); 
@@ -19,7 +20,13 @@
     Picture copy3 = revealPicture(copy2); 
     copy3.explore();
 
-      canHide(copy2, copy3);
+      System.out.println(canHide(beach, arch));
+        if (canHide(beach, arch)) {
+            Picture hidden = hidePicture(beach, arch, 0, 0);
+            hidden.explore();
+            Picture revealed = revealPicture(hidden);
+            revealed.explore();
+        }
     }
     public static void clearLow( Pixel p ){ 
         p.setRed(p.getRed() & 0b11111100);
@@ -56,19 +63,27 @@
     }
 
     public static boolean canHide(Picture source, Picture secret){
-      if(source.getPictureWithHeight().equals(secret.getPictureWithHeight()) && (source.getPictureWithWidth(0).equals(secret.getPictureWithWidth(0))))
+      if(source.getWidth() == secret.getWidth() && source.getHeight() == secret.getHeight())
       return true;
 
       else
       return false;  
     }
       
-    public static Picture hidePicture(Picture source, Picture secret){
-      canHide(source, secret);
-      revealPicture(secret);
-      //continue activity 2
-      return new Picture();
+     public static Picture hidePicture(Picture source, Picture secret, int row, int column){
+        Picture CombinedPicture = new Picture(source);
+        Pixel[][] CombinedPixels = CombinedPicture.getPixels2D();
+        Pixel[][] secretPixels = secret.getPixels2D();
+        for(int r = 0; r < secretPixels.length; r++){
+            for(int c = 0; c < secretPixels[r].length; c++){
+                Pixel CombinedPixel = CombinedPixels[r + row][c + column];
+                Color secretColor = secretPixels[r][c].getColor();
+                setLow(CombinedPixel, secretColor);
+            }
+        }
+        return CombinedPicture;
     }
+
   }
 
   //** * Clear the lower (rightmost) two bits in a pixel. */
